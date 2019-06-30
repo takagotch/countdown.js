@@ -19,6 +19,17 @@ countdown.abort();
 countdown.getRemainingTime();
 ```
 
-```
+```js
+var submitCountdown = new Countdown(3, function(seconds) {
+  $deleteTrigger.text('Deleting in ' + seconds + '...');
+}, function() {
+  $newDeleteTrigger.text('Delete');
+  $cancelTrigger.hide();
+});
+
+$cancelTrigger.on('click', function() {
+  submitCountdown.abort();
+  $cancelTrigger.hide();
+});
 ```
 
